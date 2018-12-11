@@ -10,6 +10,7 @@ const Div = Styled.div`
     border: 1px solid #dcdde1;
     background-color: white;
     border-radius:5px;
+    box-shadow: 4px 4px 4px #ecf0f1;
 `;
 
 const options = {
