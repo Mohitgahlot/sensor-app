@@ -14,6 +14,7 @@ const SimpleMap = (prods) =>{
 
 
 
+
         return (
             // Important! Always set the container height explicitly
             <div style={{ marginBottom:"0px", height: "40vh"}}>
@@ -23,7 +24,7 @@ const SimpleMap = (prods) =>{
                     lng: -118.2437
                 }}>
                     <Marker
-                        title={'The marker`s title will appear as a tooltip.'}
+                        title={'Sensor Id: 12321323'}
                         name={'SOMA'}
                         sensorId = "C234.02.234.08.S23.N35"
                         position={{lat: 34.0522, lng: -118.2437}}
