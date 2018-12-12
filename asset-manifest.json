@@ -1,0 +1,13 @@
+{
+  "main.css": "/sensor-app/static/css/main.05033c0b.chunk.css",
+  "main.js": "/sensor-app/static/js/main.5a5fc2ea.chunk.js",
+  "main.js.map": "/sensor-app/static/js/main.5a5fc2ea.chunk.js.map",
+  "static/js/1.ed25fbbe.chunk.js": "/sensor-app/static/js/1.ed25fbbe.chunk.js",
+  "static/js/1.ed25fbbe.chunk.js.map": "/sensor-app/static/js/1.ed25fbbe.chunk.js.map",
+  "runtime~main.js": "/sensor-app/static/js/runtime~main.c217283e.js",
+  "runtime~main.js.map": "/sensor-app/static/js/runtime~main.c217283e.js.map",
+  "static/css/main.05033c0b.chunk.css.map": "/sensor-app/static/css/main.05033c0b.chunk.css.map",
+  "index.html": "/sensor-app/index.html",
+  "precache-manifest.d6b3d09e78d31449d18ce6d5fefe9ec0.js": "/sensor-app/precache-manifest.d6b3d09e78d31449d18ce6d5fefe9ec0.js",
+  "service-worker.js": "/sensor-app/service-worker.js"
+}
