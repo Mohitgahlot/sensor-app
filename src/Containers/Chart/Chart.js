@@ -7,7 +7,7 @@ import axios from 'axios';
 import LineChart from '../../Components/Chart/LineChart';
 
 
-const Chart = (prods) => {
+const Chart = (props) => {
 
 
     // componentDidMount() {
@@ -51,9 +51,10 @@ const Chart = (prods) => {
     // }
 
 
+
     return (
         <div>
-            <LineChart onChange={prods.onChange} chartData={prods.lineChart} />
+            <LineChart onChange={props.onChange} chartData={props.lineChart} />
         </div>
     );
 

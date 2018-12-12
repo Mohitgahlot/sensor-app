@@ -11,6 +11,8 @@ const Div = Styled.div`
     background-color: white;
     border-radius:5px;
     box-shadow: 4px 4px 4px #ecf0f1;
+    z-index:10000;
+    margin-top: 60px;
 `;
 
 const options = {
@@ -57,7 +59,7 @@ const InfoValue = Styled.div`
     color: green;
 `;
 
-const Switch = Styled.div`
+const Switch = Styled.button`
     height: 22px;
     padding: 0 15px;
     margin-top: 20px;
@@ -67,19 +69,23 @@ const Switch = Styled.div`
     outline:none;
     border: 0px;
     border-radius:5px;
+    z-index:10000;
     font-variant: small-caps;
 `;
 
+
 const lineChart = (props) => {
-    console.log(props.onChange);
+
+
     return (
         <Div style={{display:props.chartData.display}}>
             <H1>Sensor Stats</H1>
             <AddInfo>
                 <InfoHead>Status</InfoHead>
-                <InfoValue style={{"color": props.chartData.color}}>Active</InfoValue>
+                <InfoValue style={{"color": props.chartData.color}}>{props.chartData.status}</InfoValue>
                 <div>
-                    <Switch onClick={props.onChange} style={{"background-color": "#27ae60"}}>
+
+                    <Switch onClick={props.onChange} style={{"background-color": props.chartData.color}}>
                         {props.chartData.status}
                     </Switch>
                 </div>

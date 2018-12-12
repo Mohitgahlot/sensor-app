@@ -16,7 +16,7 @@ const SimpleMap = (prods) =>{
 
         return (
             // Important! Always set the container height explicitly
-            <div style={{ marginBottom:"0px", height: "50vh" }}>
+            <div style={{ marginBottom:"0px", height: "40vh"}}>
                 <GoogleMapReact style={{ height: '40vh', width: '80%', marginTop:"40px", marginBottom:"20px" }} google={prods.google}
                     zoom = {14} initialCenter={{
                     lat: 34.0522,

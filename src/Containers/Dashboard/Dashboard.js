@@ -63,9 +63,16 @@ class Dashboard extends Component {
             chart.datasets[0].label = repos.type;
             chart.datasets[0].data = val1;
             chart.labels = label;
-            chart.status= "Active";
-            chart.color= "#27ae60";
             chart.display="block";
+            const sensorId = repos.sensorId;
+            if(localStorage.getItem(sensorId)){
+                chart.status= "Inactive";
+                chart.color= "red";
+            }
+            else{
+                chart.status= "Active";
+                chart.color= "#27ae60";
+            }
             this.setState({data:values,lineChart:chart});
         });
 
@@ -84,20 +91,20 @@ class Dashboard extends Component {
 
     changeStatus = (event) =>{
         event.preventDefault();
-        alert("sdas");
         const repos = this.state.data[0];
         const sensorId = repos.sensorId;
         const chart = {...this.state.lineChart};
-        if(localStorage.getItem("sensorId")){
+        if(localStorage.getItem(sensorId)){
             localStorage.removeItem(sensorId);
             chart.status= "Active";
             chart.color= "#27ae60";
         }
         else{
-            localStorage.addItem(sensorId,"Inactive");
+            localStorage.setItem(sensorId,"Inactive");
             chart.status= "Inactive";
-            chart.color= "Red";
+            chart.color= "red";
         }
+        this.setState({lineChart:chart});
     };
 
 
@@ -111,8 +118,9 @@ class Dashboard extends Component {
                     <InfoBox heading="Sensor Node Stats" key1={["Total Clusters","Active","Inactive"]} value={[36,16,10]} color="#3498db"/>
                 </BoxContainer>
                 <Map showTable={this.showTable}/>
-                <Chart onChange={this.changeStatus} lineChart={this.state.lineChart}/>
                 <Table data={this.state.data} display={this.state.display} />
+                <Chart onChange={this.changeStatus} lineChart={this.state.lineChart}/>
+
             </Dash>
         );
 

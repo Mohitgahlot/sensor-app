@@ -6,7 +6,7 @@ import '../../Containers/Dashboard/font.css';
 const Div = Styled.div`
     width: 92%;
     background-color:white;
-    margin-top: 40px;
+    margin-top: 100px;
     padding: 20px 40px;
     padding-top: 0;
     border: 1px solid #dcdde1;
@@ -15,6 +15,7 @@ const Div = Styled.div`
     color: grey;
     height: 600px;
     overflow: auto;
+   
 `;
 
 
