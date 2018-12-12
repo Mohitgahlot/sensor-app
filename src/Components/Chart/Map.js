@@ -1,35 +1,50 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React from 'react';
+import GoogleMapReact, {Marker, GoogleApiWrapper} from 'google-maps-react';
+import Styled from 'styled-components';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-class SimpleMap extends Component {
-    static defaultProps = {
+const SimpleMap = (prods) =>{
+    const defaultProps = {
         center: {
-            lat: 59.95,
-            lng: 30.33
+            lat: 34.0522,
+            lng: -118.2437
         },
-        zoom: 11
+        zoom: 8,
     };
 
-    render() {
+
+
         return (
             // Important! Always set the container height explicitly
-            <div style={{ height: '50vh', width: '100%', marginTop:"40px" }}>
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyAMPjjW-5G0nqm3cL1g4rTIubccAxXKl54" }}
-                    defaultCenter={this.props.center}
-                    defaultZoom={this.props.zoom}
-                >
-                    <AnyReactComponent
-                        lat={59.955413}
-                        lng={30.337844}
-                        text={'Kreyser Avrora'}
+            <div style={{ marginBottom:"0px", height: "50vh" }}>
+                <GoogleMapReact style={{ height: '40vh', width: '80%', marginTop:"40px", marginBottom:"20px" }} google={prods.google}
+                    zoom = {14} initialCenter={{
+                    lat: 34.0522,
+                    lng: -118.2437
+                }}>
+                    <Marker
+                        title={'The marker`s title will appear as a tooltip.'}
+                        name={'SOMA'}
+                        sensorId = "C234.02.234.08.S23.N35"
+                        position={{lat: 34.0522, lng: -118.2437}}
+                        onClick={prods.showTable}
+                    />
+                    <Marker
+                        title={'The marker`s title will appear as a tooltip.'}
+                        name={'SOMA'}
+                        sensorId = "C594.258.S3.N93"
+                        position={{lat: 34.1522, lng: -118.2437}}
+                        onClick={prods.showTable}
                     />
                 </GoogleMapReact>
             </div>
         );
-    }
-}
+};
 
-export default SimpleMap;
+// const Marker = (props) => {
+//     return <Mark/>
+// };
+
+export default GoogleApiWrapper({
+    apiKey: ('AIzaSyCXpR1Vm_S9f6CDMZmgf3VlnQo_4RJ1XgI')
+})(SimpleMap)

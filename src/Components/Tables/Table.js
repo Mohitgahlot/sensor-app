@@ -6,18 +6,26 @@ import '../../Containers/Dashboard/font.css';
 const Div = Styled.div`
     width: 92%;
     background-color:white;
-    margin-top: -30px;
+    margin-top: 40px;
     padding: 20px 40px;
+    padding-top: 0;
     border: 1px solid #dcdde1;
     box-shadow: 4px 4px 4px #ecf0f1;
     background-color: white;
     color: grey;
+    height: 600px;
+    overflow: auto;
 `;
 
 
 const Tr = Styled.tr`
     height: 60px;
-    border: 1px solid red;
+    font-family: 'Raleway',san-serif;
+
+`;
+
+const TR = Styled.tr`
+    height: 30px;
     font-family: 'Raleway',san-serif;
 `;
 
@@ -26,62 +34,56 @@ const H1 = Styled.h2`
     margin-bottom: 30px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
+    position: absolute;
+    width: 75%;
+    height: 60px;
+    line-height: 70px;
+    background-color: white;
+    margin-top: 0px;
 `;
 
 
 
-const table = () =>{
+const table = (prods) =>{
 
-    var rows = [];
-    for(var x=0; x<5; x++){
+    var Values = [];
 
-        rows.push("<tr><th scope='row'>1</th>td>Mark</td> <td>Otto</td> <td>@mdo</td></tr>");
-
+    if(prods.data){
+        Values = prods.data;
     }
 
-    const Values = [
-        {
-            id: 1,
-            data:3,
-            price:4
-        },
-        {
-                id: 1,
-                data:3,
-                price:4
-        },
-        {
-                id: 1,
-                data:3,
-                price:4
-         }
-    ];
+
 
     return (
-            <Div>
-                <H1>Monthly Budget</H1>
-                <Table bordered style={{width:"100%", textAlign:"left", backgroundColor:"white"}}>
+            <Div style={{display:prods.display}}>
+                <H1>Data Table</H1>
+                <Table bordered style={{width:"100%", "padding-top": "60px", textAlign:"left", backgroundColor:"white"}}>
                     <thead>
                     <Tr>
-                        <th style={{width: "19%"}}>#</th>
-                        <th style={{width: "30%"}}>First Name</th>
-                        <th style={{width: "32%"}}>Last Name</th>
-                        <th style={{width: "24%"}}>Username</th>
+                        <th style={{width: "10%"}}>#</th>
+                        <th style={{width: "24%"}}>Sensor Id</th>
+                        <th style={{width: "18%"}}>Cluster Id</th>
+                        <th style={{width: "12%"}}>Type</th>
+                        <th style={{width: "12%"}}>Value</th>
+                        <th style={{width: "26%"}}>Timestamp</th>
                     </Tr>
                     </thead>
                     <tbody>
                     {Values.map(( listValue, index ) => {
                         return (
-                            <tr key={index+1}>
+                            <TR key={index+1}>
                                 <td>{index+1}</td>
-                                <td>{listValue.id}</td>
-                                <td>{listValue.data}</td>
-                                <td>{listValue.price}</td>
-                            </tr>
+                                <td>{listValue.sensorId}</td>
+                                <td>{listValue.clusterId}</td>
+                                <td>{listValue.type}</td>
+                                <td>{listValue.val}</td>
+                                <td>{listValue.timestamp}</td>
+                            </TR>
                         );
                     })}
                     </tbody>
                 </Table>
+                {console.log(Values)}
             </Div>
         );
 };

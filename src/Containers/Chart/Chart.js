@@ -7,22 +7,8 @@ import axios from 'axios';
 import LineChart from '../../Components/Chart/LineChart';
 
 
-class Chart extends React.Component {
-    state = {
-        lineChart: {
-            labels: ['August', 'Sept', 'October', 'November', 'December', 'January'],
-            datasets: [
-                {
-                    label: 'Amount Spent in USD',
-                    data: [12,24,15,24,64,31],
-                    backgroundColor: "rgba(54, 162, 235, 0.2)",
-                    borderColor: "rgba(54, 162, 235, 0.6)",
-                    borderWidth: 1.3,
-                    pointBackgroundColor: "rgba(54, 162, 235, 1)",
-                },
-            ],
-        },
-    };
+const Chart = (prods) => {
+
 
     // componentDidMount() {
     //     const { user } = this.props;
@@ -65,14 +51,12 @@ class Chart extends React.Component {
     // }
 
 
-    render() {
+    return (
+        <div>
+            <LineChart onChange={prods.onChange} chartData={prods.lineChart} />
+        </div>
+    );
 
-        return (
-            <div>
-                <LineChart chartData={this.state.lineChart} />
-            </div>
-        );
-    }
-}
+};
 
 export default Chart;
